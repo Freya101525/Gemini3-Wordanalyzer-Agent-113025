@@ -7,8 +7,8 @@ import { performOCR, analyzeDocumentText } from '../services/geminiService';
 import { PROMPTS } from '../constants';
 import * as pdfjsLib from 'pdfjs-dist';
 
-// Ensure worker is set for the OCR workspace preview as well
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://esm.sh/pdfjs-dist@4.0.379/build/pdf.worker.min.mjs`;
+// Ensure worker is set for the OCR workspace preview as well, matching dynamic version
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://esm.sh/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
 
 interface OCRWorkspaceProps {
     documents: DocumentFile[];

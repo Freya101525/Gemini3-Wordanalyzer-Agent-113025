@@ -3,8 +3,8 @@ import { X, FileText, Image as ImageIcon, ZoomIn, ZoomOut, ChevronLeft, ChevronR
 import { DocumentFile } from '../types';
 import * as pdfjsLib from 'pdfjs-dist';
 
-// Set worker source
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://esm.sh/pdfjs-dist@4.0.379/build/pdf.worker.min.mjs`;
+// Set worker source dynamically to match loaded library version
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://esm.sh/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
 
 interface DocPreviewModalProps {
     doc: DocumentFile;
